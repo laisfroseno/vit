@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funny Question</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      /* Link corrigido da imagem de fundo */
+      background: url("teste.png") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .question-box {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .question {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .button-yes {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .button-no {
+      background-color: #f44336;
+      color: white;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div class="question-box">
+    <div class="question">Quer ser promovida a namorada?</div>
+    <div class="buttons">
+      <button class="button-yes" onclick="showImage()">Por favoooor</button>
+      <button class="button-no" id="moving-button">Não</button>
+    </div>
+  </div>
+
+  <script>
+    const movingButton = document.getElementById('moving-button');
+
+    function getRandomPosition() {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+
+      const randomX = Math.floor(Math.random() * (viewportWidth - 100));
+      const randomY = Math.floor(Math.random() * (viewportHeight - 50));
+
+      return { x: randomX, y: randomY };
+    }
+
+    movingButton.addEventListener('mouseover', () => {
+      const position = getRandomPosition();
+      movingButton.style.left = `${position.x}px`;
+      movingButton.style.top = `${position.y}px`;
+    });
+
+    function showImage() {
+      // Link para a imagem ao clicar em "Yes" no Google Drive
+      window.location.href = "imgresposta.png";
+    }
+  </script>
+</body>
+</html>
